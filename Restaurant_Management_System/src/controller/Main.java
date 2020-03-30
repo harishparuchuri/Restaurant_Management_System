@@ -105,7 +105,7 @@ public class Main {
 		System.out.println("2. Take Order");
 		System.out.println("0. BACK TO MAIN MENU");
 		System.out.println("------------------------------------------------------------------------------------------------------------");
-		System.out.println("Select any option");
+		System.out.println("Select  option");
 	}
 
 }
