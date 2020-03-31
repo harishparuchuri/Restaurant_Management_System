@@ -15,7 +15,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		Scanner sc=new Scanner(System.in);
 		int select;
 		do {
@@ -37,48 +37,49 @@ public class Main {
 					break;
 					case 4:System.out.println("Generate report");
 					break;
-					
+
 					case 5:System.out.println("optional sort items ");
 					break;
 					case 0:System.out.println("back menu");
 					break;
 					default: break;
-						
+
 					}
-					
-					
+
+
 				}
 				while (select !=0);
 				break;
-			case 2:	do {
-				usermenu();
-				select=sc.nextInt();
-				switch(select)
-				{
-				case 1:System.out.println("print menu");
-				break;
-				case 2:System.out.println("take order");
-				break;
-				case 0:System.out.println("return main menu");
-				break;
-				default:
+			case 2:
+				do {
+					usermenu();
+					select=sc.nextInt();
+					switch(select)
+					{
+					case 1:System.out.println("print menu");
 					break;
+					case 2:System.out.println("take order");
+					break;
+					case 0:System.out.println("return main menu");
+					break;
+					default:
+						break;
+					}
 				}
-			}
-			while (select !=0);
-			break;
-			
+				while (select !=0);
+				break;
+
 			default:
 				break;
 			}
 		}
 		while (select !=3);
 		System.out.println("Program Closed Thank You");
-		
-		
+
+
 
 	}
-	
+
 	static void Mainmenu()
 	{
 		System.out.println("                              -----------> Welcom to Telugu Ruchulu <-----------");
@@ -105,7 +106,7 @@ public class Main {
 		System.out.println("2. Take Order");
 		System.out.println("0. BACK TO MAIN MENU");
 		System.out.println("------------------------------------------------------------------------------------------------------------");
-		System.out.println("Select  option");
+		System.out.println("Select any option");
 	}
 
 }
