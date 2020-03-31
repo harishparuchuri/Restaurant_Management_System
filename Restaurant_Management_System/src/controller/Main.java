@@ -8,6 +8,9 @@ package controller;
  *
  */
 import java.util.*;
+
+import dao.AddFood;
+import dao.OrderFood;
 public class Main {
 
 	/**
@@ -15,7 +18,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		AddFood addfood=new AddFood();
 		Scanner sc=new Scanner(System.in);
 		int select;
 		do {
@@ -23,13 +26,14 @@ public class Main {
 			select=sc.nextInt();
 			switch(select)
 			{
-			case 1://admin menu display and functions
+			case 1://admin menu display 
 				do {
 					Adminmenu();
 					select=sc.nextInt();
 					switch(select)
 					{
 					case 1:System.out.println("add food item");
+					addfood.additem();
 					break;
 					case 2:System.out.println("update food");
 					break;
@@ -57,8 +61,11 @@ public class Main {
 					switch(select)
 					{
 					case 1:System.out.println("print menu");
+					addfood.displayfood();
+					
 					break;
 					case 2:System.out.println("take order");
+					addfood.Bill();
 					break;
 					case 0:System.out.println("return main menu");
 					break;

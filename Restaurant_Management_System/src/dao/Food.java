@@ -4,21 +4,31 @@ public class Food {
 	public String Fname;
 	public float price;
 	Scanner sc=new Scanner(System.in);
+	Food()
+	{
+		
+	}
+	//entering food details
 	Food(String Fname,Float price)
 	{
 		this.Fname=Fname;
 		this.price=price;
 	}
-		public void addfood()
-		{
-			System.out.println("Enter Food Item Name");
-			Fname=sc.nextLine();
-			System.out.println("Enter Price of "+ Fname);
-			price=sc.nextFloat();
-			
-			
-		}
+	//getting food name and price
+	public void addfood()
+	{
+		System.out.println("Enter Food Item Name");
+		Fname=sc.nextLine();
+		System.out.println("Enter Price of "+ Fname);
+		price=sc.nextFloat();
+
+
+	}
 	
+	public String FoodData() {
+		return Fname+" "+price;
+	}
+
 	public String getFname() {
 		return Fname;
 	}
@@ -31,6 +41,6 @@ public class Food {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
+
 
 }
