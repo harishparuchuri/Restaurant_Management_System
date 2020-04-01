@@ -2,14 +2,14 @@ package dao;
 import java.util.*;
 public class Food {
 	public String Fname;
-	public float price;
+	public int price;
 	Scanner sc=new Scanner(System.in);
 	Food()
 	{
 		
 	}
 	//entering food details
-	Food(String Fname,Float price)
+	Food(String Fname,int price)
 	{
 		this.Fname=Fname;
 		this.price=price;
@@ -20,7 +20,7 @@ public class Food {
 		System.out.println("Enter Food Item Name");
 		Fname=sc.nextLine();
 		System.out.println("Enter Price of "+ Fname);
-		price=sc.nextFloat();
+		price=sc.nextInt();
 
 
 	}
@@ -35,10 +35,10 @@ public class Food {
 	public void setFname(String fname) {
 		Fname = fname;
 	}
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

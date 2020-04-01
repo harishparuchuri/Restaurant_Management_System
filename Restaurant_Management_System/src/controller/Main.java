@@ -19,6 +19,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		AddFood addfood=new AddFood();
+		OrderFood orderfood=new OrderFood();
 		Scanner sc=new Scanner(System.in);
 		int select;
 		do {
@@ -36,8 +37,10 @@ public class Main {
 					addfood.additem();
 					break;
 					case 2:System.out.println("update food");
+					orderfood.UpdateFood();
 					break;
 					case 3:System.out.println("delete food");
+					orderfood.DeleteFood();
 					break;
 					case 4:System.out.println("Generate report");
 					break;

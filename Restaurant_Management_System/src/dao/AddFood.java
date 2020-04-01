@@ -38,8 +38,8 @@ public class AddFood {
 	//generate bill
 	public void Bill()
 	{
-		float foodprice=0;
-		float totalBill=0;
+		int foodprice=0;
+		int totalBill=0;
 		int number;
 		OrderFood order=new OrderFood();
 		orderfood.add(order);
@@ -56,7 +56,7 @@ public class AddFood {
 			order.setOrderFood(Food);
 			foodprice=food.price*number;
 			totalBill+=foodprice;
-			System.out.println("cost for item "+(i+1)+"is "+foodprice);
+			//System.out.println("cost for item "+(i+1)+"is "+foodprice);
 			
 		}
 		
