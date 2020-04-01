@@ -1,8 +1,11 @@
 package dao;
 import java.util.*;
+import java.io.*;
 import dao.*;
 public class OrderFood {
-	Scanner sc=new Scanner(System.in);
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	//delete array for testing
+	ArrayList<Food> Itemlist = new ArrayList<>();
 	
 	ArrayList<Food>OrderFood=new ArrayList<>();
 	public int totalBill;
@@ -15,63 +18,17 @@ public class OrderFood {
 		this.totalBill = totalBill;
 	}
 	//generate bill
-	public void BillPrint()
-	{
-		System.out.println("<-----Hotel Telugu Ruchulu----->");
-		for(Food f:this.OrderFood)
-		{
-			System.out.println("Selected Food is "+ f.Fname);
-			
-		}
-		System.out.println("Total Bill Amount "+this.totalBill);
-		System.out.println("<-----Thank You----->");
-	}
 	
-	//update price method
-	public int EditPrice()
-	{
-		System.out.println("Enter Updated Price of Item");
-		return sc.nextInt();
-	}
-	public void UpdateFood()
-	{
-		String itemname;
-		int flag=0;
-		System.out.println("Enter the Item Name Do you Want To Update");
-		itemname=sc.nextLine();
-		System.out.println(" you enter the name is "+itemname+" size of array "+Itemlist.size());
-		
-		for(int i=0;i<Itemlist.size();i++)
-		{
-			System.out.println("inside loop ");
-			//debuing
-			System.out.println(Itemlist.get(i).getFname());
-			System.out.println(itemname);
-			
-			
-			
-			
-			//end code
-			
-			
-			if(Itemlist.get(i).getFname().equals(itemname));
-			flag++;
-			Itemlist.get(i).setPrice(EditPrice());
-			break;
-		}
-		if(flag==0)
-		{
-			System.out.println("No item exist with name "+itemname);
-		}
-	}
+	
+	
 	
 	//Delete food Item from List
-	public void DeleteFood()
+	public void DeleteFood() throws IOException
 	{
 		String Deleteitem;
 		int flag=0;
 		System.out.println("Enter Item NAme Do You Want To Delete");
-		Deleteitem=sc.nextLine();
+		Deleteitem=br.readLine();
 		for(int i=0;i<Itemlist.size();i++)
 		{
 			if(Itemlist.get(i).getFname().equals(Deleteitem))

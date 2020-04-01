@@ -1,9 +1,10 @@
 package dao;
+import java.io.*;
 import java.util.*;
 public class Food {
 	public String Fname;
 	public int price;
-	Scanner sc=new Scanner(System.in);
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 	Food()
 	{
 		
@@ -15,12 +16,12 @@ public class Food {
 		this.price=price;
 	}
 	//getting food name and price
-	public void addfood()
+	public void addfood() throws IOException
 	{
 		System.out.println("Enter Food Item Name");
-		Fname=sc.nextLine();
+		Fname=br.readLine();
 		System.out.println("Enter Price of "+ Fname);
-		price=sc.nextInt();
+		price=Integer.parseInt(br.readLine());
 
 
 	}

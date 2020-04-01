@@ -3,6 +3,7 @@
  */
 package controller;
 
+import java.io.*;
 /**
  * @author haris
  *
@@ -15,32 +16,33 @@ public class Main {
 
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		AddFood addfood=new AddFood();
 		OrderFood orderfood=new OrderFood();
-		Scanner sc=new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 		int select;
 		do {
 			Mainmenu();
-			select=sc.nextInt();
+			select=Integer.parseInt(br.readLine()); 
 			switch(select)
 			{
 			case 1://admin menu display 
 				do {
 					Adminmenu();
-					select=sc.nextInt();
+					select=Integer.parseInt(br.readLine()); 
 					switch(select)
 					{
 					case 1:System.out.println("add food item");
 					addfood.additem();
 					break;
 					case 2:System.out.println("update food");
-					orderfood.UpdateFood();
+					addfood.UpdateFood();
 					break;
 					case 3:System.out.println("delete food");
-					orderfood.DeleteFood();
+					addfood.DeleteFood();
 					break;
 					case 4:System.out.println("Generate report");
 					break;
@@ -60,7 +62,7 @@ public class Main {
 			case 2:
 				do {
 					usermenu();
-					select=sc.nextInt();
+					select=Integer.parseInt(br.readLine()); 
 					switch(select)
 					{
 					case 1:System.out.println("print menu");
@@ -68,7 +70,9 @@ public class Main {
 					
 					break;
 					case 2:System.out.println("take order");
+					
 					addfood.Bill();
+					addfood.Receipt();
 					break;
 					case 0:System.out.println("return main menu");
 					break;
