@@ -72,7 +72,7 @@ public class Main {
 					case 2:System.out.println("take order");
 					
 					addfood.Bill();
-					addfood.Receipt();
+					addfood.Generatepdf();
 					break;
 					case 0:System.out.println("return main menu");
 					break;

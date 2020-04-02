@@ -1,9 +1,9 @@
-package dao;
+package model;
 import java.io.*;
 import java.util.*;
 public class Food {
-	public String Fname;
-	public int price;
+	private String Fname;
+	private int price;
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 	Food()
 	{

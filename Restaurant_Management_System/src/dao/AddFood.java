@@ -2,6 +2,15 @@ package dao;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.TabSettings;
+import com.itextpdf.text.pdf.PdfWriter;
 
 
 public class AddFood {
@@ -9,10 +18,7 @@ public class AddFood {
 	
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 	
-	ArrayList<Food> Itemlist = new ArrayList<>();
-	ArrayList<String>selectedfood=new ArrayList<>();
-	ArrayList<OrderFood>orderfood=new ArrayList<>();
-	Food Food;
+	
 	int BillNo=1;
 	
 	public void setItemlist(ArrayList<Food> itemlist) {
@@ -49,15 +55,18 @@ public class AddFood {
 	String pattern = "dd-MM-yyyy";
 	SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
-	String date = simpleDateFormat.format(new Date());
+	public String date = simpleDateFormat.format(new Date());
 	
 	
+	String CustName;
+	int foodprice;
+	int totalBill;
 	//generate bill
 	public void Bill() throws NumberFormatException, IOException
 	{
-		String CustName;
-		int foodprice=0;
-		int totalBill=0;
+		selectedfood.clear();
+		foodprice=0;
+		totalBill=0;
 		int number;
 		OrderFood order=new OrderFood();
 		orderfood.add(order);
@@ -89,7 +98,7 @@ public class AddFood {
 			
 		}
 		
-		String heading="ITEM NAME\tPRICE\tQUANTITY\tCOST";
+		 String heading="ITEM NAME\tPRICE\tQUANTITY\tCOST";
 		order.setBilltotal(totalBill);
 		//print food items in bill
 		System.out.println("   <-----Hotel Telugu Ruchulu----->");
@@ -99,8 +108,8 @@ public class AddFood {
 		for(String sfood:selectedfood)
 			System.out.println(sfood);
 		System.out.println("\nTotal Bill Amount is  \t\t\t"+totalBill);
-        System.out.println("\nCustomer Name         "+CustName);
-        System.out.println("\nDate\t               \t\t"+date);
+        System.out.println("\nCustomer Name      \t\t\t "+CustName);
+        System.out.println("\nDate\t               \t\t\t"+date);
 		System.out.println("\n\t<--Thank you visit again-->\n");
 		
 		
@@ -109,18 +118,7 @@ public class AddFood {
 				
 	}
 	
-	//Generate receipt
-	public void Receipt() throws IOException 
-	{
-		String fileName=BillNo+"_"+date;
-		BillNo++;
-		
-		File file = new File("E:\\Receipt\\fileName.txt");
-		PrintWriter out = new PrintWriter("fileName.txt");
-		out.println("harish paruchuri");
-		System.out.println("receipt generated");
-		out.close();
-	}
+	
 	
 	
 	
@@ -181,6 +179,44 @@ public class AddFood {
 			{
 				System.out.println("There is no Item With name "+ Deleteitem +" Present in Menu");
 			}
+		}
+		
+		
+		//Generate pdf
+		
+		public void Generatepdf()
+		{
+			String filename=BillNo+" "+date+CustName+".pdf";
+			BillNo++;
+			Document document = new Document();
+		      try
+		      {
+		         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filename));
+		         document.open();
+		         
+		         document.add(new Paragraph("   <-----Hotel Telugu Ruchulu----->"));
+		         document.add(new Paragraph("\n             Receipt            \n"));
+		         document.add(new Paragraph("*******************************************************"));
+		         document.add(new Paragraph("ITEM NAME    PRICE    QUANTITY    COST"));
+		         for(String sfood:selectedfood)
+		        	 document.add(new Paragraph(sfood));
+		         document.add(new Paragraph("*******************************************************"));
+		         document.add(new Paragraph("\nTotal Bill Amount is                          "+totalBill));
+		         document.add(new Paragraph("\nCustomer Name                                 "+CustName));
+		         document.add(new Paragraph("\nDate                                          "+date));
+		         document.add(new Paragraph("\n    <--Thank you visit again-->\n"));
+		         
+		         
+		         
+		         document.close();
+		         writer.close();
+		      } catch (DocumentException e)
+		      {
+		         e.printStackTrace();
+		      } catch (FileNotFoundException e)
+		      {
+		         e.printStackTrace();
+		      }
 		}
 		
 
