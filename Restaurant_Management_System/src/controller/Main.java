@@ -4,6 +4,8 @@
 package controller;
 
 import java.io.*;
+
+import dao.FoodData;
 import model.*;
 
 /**
@@ -66,15 +68,17 @@ public class Main {
 							Fooddata.DeleteFood();
 							break;
 						case 4:
-						Fooddata.getreport();
-						break;
-
-						case 5:System.out.println("Add Employee");
-						employeeadd.addemployee();
-
-						break;
+							Fooddata.getreport();
+							break;
+						case 5:
+							employeeadd.addemployee();
+							break;
+						case 6:
+							Fooddata.displayuser();
+							break;
 						case 0:System.out.println("back menu");
 						break;
+
 						default: break;
 
 						}
@@ -103,25 +107,25 @@ public class Main {
 					if(eflag==true)
 					{
 
-					usermenu();
-					select=Integer.parseInt(br.readLine()); 
-					switch(select)
-					{
-					case 1:
-						Fooddata.displayfood();
+						usermenu();
+						select=Integer.parseInt(br.readLine()); 
+						switch(select)
+						{
+						case 1:
+							Fooddata.displayfood();
+							break;
+						case 2:
+							Fooddata.Bill();
+							Fooddata.Generatepdf();
+							//Fooddata.excel();
+							break;
+						case 0:System.out.println("Back to main menu");
 						break;
-					case 2:
-						Fooddata.Bill();
-						Fooddata.Generatepdf();
-						//Fooddata.excel();
-						break;
-					case 0:System.out.println("Back to main menu");
-					break;
-					default:
-						break;
-					}
+						default:
+							break;
+						}
 
-				}
+					}
 				}
 
 				while (select !=0);
@@ -155,6 +159,7 @@ public class Main {
 		System.out.println("3. Delete Fodd Item");
 		System.out.println("4. Generate Report");
 		System.out.println("5. Add Employee");
+		System.out.println("6. Display Employee data");
 		System.out.println("0. BACK TO menu main");
 		System.out.println("------------------------------------------------------------------------------------------------------------");
 		System.out.println("Select any option");

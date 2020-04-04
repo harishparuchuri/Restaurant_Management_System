@@ -6,12 +6,12 @@ public class Food {
 	private int price;
 	private int icount=0;
 	private int imoney=0;
-	
-	
+
+
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
-	Food()
+	public Food()
 	{
-		
+
 	}
 	//entering food details
 	Food(String Fname,int price,int icount,int imoney)
@@ -31,7 +31,7 @@ public class Food {
 
 
 	}
-	
+
 	public String FoodData() {
 		return Fname+" "+price;
 	}
@@ -60,6 +60,6 @@ public class Food {
 	public void setImoney(int imoney) {
 		this.imoney = imoney;
 	}
-	
+
 
 }

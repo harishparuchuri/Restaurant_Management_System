@@ -8,37 +8,37 @@ import java.io.InputStreamReader;
 
 public class User {
 	//Validation valid=new Validation();
-	
+
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	private String username;
 	private String password;
-	
+
 	public User() {
-	
+
 	}
-	
+
 	User(String username, String password) {
-		
+
 		this.username = username;
 		this.password = password;
 	}
-	
+
 	public void adduser() throws IOException
 	{
 		System.out.println("enter user name");
 		username=br.readLine();
 		System.out.println("enter password");
 		password=br.readLine();
-		
+
 	}
-	
 
-	
-	
-	
 
-	
-	
+
+
+
+
+
+
 	public String getUsername() {
 		return username;
 	}
@@ -54,16 +54,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
-	
-	
-	
-		//Admin login
-		 public boolean adminlogin() throws IOException 
+
+
+
+
+
+	//Admin login
+	public boolean adminlogin() throws IOException 
 	{
-			 
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		final String Adminuser="harish";
 		final String adminpass="paruchuri";
@@ -71,16 +71,16 @@ public class User {
 		String aname=br.readLine();
 		System.out.println("enter passWord");
 		String apass=br.readLine();
-		
+
 		if(aname.equals(Adminuser) && apass.equals(adminpass))
-			
+
 			return true;
 		else
 			return false;
-		
+
 	}
-		 
-		 
-		
-		 
+
+
+
+
 }
